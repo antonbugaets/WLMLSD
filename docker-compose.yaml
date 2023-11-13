@@ -1,0 +1,14 @@
+version: "3.3"
+
+services:
+  redis_textmorph:
+    image: redis:alpine
+    network_mode:
+      host
+    command: --port ${REDIS_PORT}
+    logging:
+      driver: "loki"
+      options:
+        loki-url: ${LOKI_URL}
+        loki-external-labels: "job=docker,container_name={{.Name}}"
+        max-size: "10M"

@@ -1,0 +1,26 @@
+version: "3.3"
+
+services:
+  grafana:
+    image: grafana/grafana:latest
+    container_name: ${GRAFANA_CONTAINER_NAME}
+    env_file:
+      - .env
+    environment:
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_USER}
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD}
+      GF_SERVER_HTTP_PORT: ${GRAFANA_PORT}
+    user: root
+    volumes:
+      - ${GRAFANA_DATA_ROOT}:/var/lib/grafana
+    network_mode:
+      host
+    depends_on:
+      - loki
+
+  loki:
+    image: grafana/loki:latest
+    container_name: ${LOKI_CONTAINER_NAME}
+    network_mode:
+      host
+    command: -config.file=/etc/loki/local-config.yaml
