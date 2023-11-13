@@ -1,0 +1,7 @@
+{
+  "prompts": [
+    {"prompt_text": "Identify and extract creative prompts for Stable Diffusion from the following text. Focus on elements that are visually descriptive and have potential for artistic interpretation. Look for unique settings, characters, objects, or emotions that can be vividly depicted. Provide a concise and clear prompt for each identified element suitable for generating images using Stable Diffusion."},
+    {"prompt_text": "Read through the following text and identify distinctive visual elements that can be transformed into prompts for Stable Diffusion. Look for vibrant descriptions of landscapes, intriguing character designs, or dynamic scenes. Summarize each element into a concise, imaginative prompt, suitable for generating detailed and engaging images."},
+    {"prompt_text": "Examine the provided text and pinpoint specific, visually rich details that would serve as inspiring prompts for Stable Diffusion. Focus on capturing the essence of the text through vivid imagery, such as unique architectural styles, colorful natural settings, or expressive character emotions. Craft each identified detail into a clear and evocative prompt to facilitate the creation of visually compelling artwork."}
+  ]
+}
