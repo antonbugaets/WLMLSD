@@ -25,9 +25,9 @@ logger = logging.getLogger(__name__)
     description="User registration via email and password.",
 )
 async def create_user(
-        request: Request,
-        body: models.UserRegisterRequest,
-        session: AsyncSession = Depends(get_db),
+    request: Request,
+    body: models.UserRegisterRequest,
+    session: AsyncSession = Depends(get_db),
 ) -> models.UserLoginResponse:
     access_token, user_id = await create_new_user(body, session)
 
@@ -41,8 +41,8 @@ async def create_user(
     response_model=models.UserLoginResponse,
 )
 async def login(
-        form_data: OAuth2PasswordRequestForm = Depends(),
-        session: AsyncSession = Depends(get_db),
+    form_data: OAuth2PasswordRequestForm = Depends(),
+    session: AsyncSession = Depends(get_db),
 ) -> models.UserLoginResponse:
     access_token = await authenticate_by_login_password(
         form_data.username, form_data.password, session
@@ -58,7 +58,7 @@ async def login(
     response_model=models.UserInfoResponse,
 )
 async def read_users_me(
-        current_user: models.UserInfoResponse = Depends(get_current_user),
+    current_user: models.UserInfoResponse = Depends(get_current_user),
 ) -> models.UserInfoResponse:
     return current_user
 
@@ -70,7 +70,7 @@ async def read_users_me(
     response_model=models.UserLoginResponse,
 )
 async def refresh_token(
-        current_user: models.UserInfoResponse = Depends(get_current_user),
+    current_user: models.UserInfoResponse = Depends(get_current_user),
 ) -> models.UserLoginResponse:
     access_token = create_access_token(
         data={"email": current_user.email, "aim": "login"}

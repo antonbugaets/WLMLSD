@@ -17,10 +17,10 @@ class UserDAL:
         self.db_session = db_session
 
     async def create_user(
-            self,
-            email: str,
-            hashed_password: str,
-            name: str,
+        self,
+        email: str,
+        hashed_password: str,
+        name: str,
     ) -> User:
         new_user = User(
             email=email,

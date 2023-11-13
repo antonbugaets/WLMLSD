@@ -19,7 +19,9 @@ embeddings = OpenAIEmbeddings()
 docsearch = Chroma.from_documents(texts, embeddings)
 
 qa = RetrievalQA.from_chain_type(
-    llm=OpenAI(), chain_type="stuff", retriever=docsearch.as_retriever(search_kwargs={"k": 1})
+    llm=OpenAI(),
+    chain_type="stuff",
+    retriever=docsearch.as_retriever(search_kwargs={"k": 1}),
 )
 
 user_phrase = "cute dog"
